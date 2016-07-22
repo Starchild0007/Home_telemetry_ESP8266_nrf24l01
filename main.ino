@@ -220,7 +220,22 @@ void setup() {
   });
 
   server.on("/in_case_of_zombie_apocalypse_hit_this", []() {
-    ESP.restart();
+    String message;
+
+    if (server.arg(0) == SHA1hash[0] | server.arg(0) == SHA1hash[1]) {
+      message = "ESP will be restarted";
+      ESP.restart();
+      server.send(200, "text/plain", message);
+    }
+    else if (server.arg(0) == SHA1hash[2]) {
+      message = "telemetry only";
+      server.send(200, "text/plain", message);
+    }
+    else {
+      message = "wrong session Id";
+      server.send(404, "text/plain", message);
+    }
+    
   });
 
   server.on("/try", []() {
