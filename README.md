@@ -1,4 +1,4 @@
-# Home_telemetry_ESP8266_nrf24l01
+# Home telemetry using ESP8266 and nrf24l01
 Basic home telemetry and remote light switcing, server using ESP8266 and nrf24l01.
 Meteo station is connected with ESP8266 using nrf24l01 and sends temperature, humidity, and atmospheric pressure.
 ###Used sensors:
