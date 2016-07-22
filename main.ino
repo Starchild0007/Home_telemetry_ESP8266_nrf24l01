@@ -32,9 +32,6 @@
 
 #define DEVICE_ID 2
 #define CHANNEL 120 //MAX 127
-#include "DHT.h"
-//  dht(DHTPIN, DHTTYPE);
-DHT dht(5, DHT11);
 
 // SPI pin configuration figured out from here:
 // http://d.av.id.au/blog/esp8266-hardware-spi-hspi-general-info-and-pinout/
@@ -140,7 +137,6 @@ void setup() {
   randomSeed(analogRead(0));
   yield();
   SPI.setHwCs(true);
-  dht.begin();
   pinMode(led, OUTPUT);
   pinMode(relay, OUTPUT);
   digitalWrite(relay, HIGH);
@@ -179,7 +175,7 @@ void setup() {
   Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
 
-  if (MDNS.begin("espDHTserver")) {
+  if (MDNS.begin("espHTserver")) {
     Serial.println("MDNS responder started");
   }
 
