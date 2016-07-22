@@ -42,18 +42,18 @@ RF24 radio(4, 15);    // Set up nRF24L01 radio on SPI bus plus pins 4 for CE and
 
 // Topology
 const uint64_t pipes[2] = { 0xDEADBEEF01LL, 0xFFFFFFFFFFLL };
-const char* ssid = "Xiaomi_9171";     // your network SSID (name)
+const char* ssid = "";     // your network SSID (name)
 const char* ssid1 = "ESP_telemetry";     // your network SSID (name)
-const char* password = "lobster1234";  // your network password
+const char* password = "";  // your network password
 const char *str_change = "CHANGE";
 
-const String key = "XusXusKusKus";
+const String key = "some key";
 String TempMeasurements[12], token, SHA1hash[3], sessionID;
 String PresMeasurements[12];
 String HumMeasurements[12];
 String printTempMeasurements, printHumMeasurements, printPresMeasurements;
 String Temperature, Pressure, Humitiy;
-String users [3] = {"Xus", "Lampochka", "Guest"};
+String users [3] = {"User1", "User2", "Guest"};
 int x = 0, h = 0, i = 0, k = 0, j = 0, f = 0, storeTempTelmetry = 11, storePresTelmetry = 11, storeHumTelmetry = 11;
 int retry = 0;
 char inbuf[6];
